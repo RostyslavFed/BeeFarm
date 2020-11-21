@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeFarm.Resource.API", "BeeFarm.Resource.API\BeeFarm.Resource.API.csproj", "{2123DB79-6F90-42F7-AC94-EE298B472B67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeFarm.Resource.API", "BeeFarm.Resource.API\BeeFarm.Resource.API.csproj", "{2123DB79-6F90-42F7-AC94-EE298B472B67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeFarm.DAL", "BeeFarm.DAL\BeeFarm.DAL.csproj", "{3877F39A-0A56-4519-9BBE-174882619503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeFarm.DAL", "BeeFarm.DAL\BeeFarm.DAL.csproj", "{3877F39A-0A56-4519-9BBE-174882619503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeFarm.BLL", "BeeFarm.BLL\BeeFarm.BLL.csproj", "{6BDA3A5D-F3CD-461B-98AF-9D8A43EF6225}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeFarm.BLL", "BeeFarm.BLL\BeeFarm.BLL.csproj", "{6BDA3A5D-F3CD-461B-98AF-9D8A43EF6225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeFarm.Auth.API", "BeeFarm.Auth.API\BeeFarm.Auth.API.csproj", "{B0AE8E24-1B58-45FA-861A-637B85F8140F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeFarm.Auth.Common", "BeeFarm.Auth.Common\BeeFarm.Auth.Common.csproj", "{79C5FD3E-4CDA-4BBD-8538-F4C6E7CF1739}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{6BDA3A5D-F3CD-461B-98AF-9D8A43EF6225}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BDA3A5D-F3CD-461B-98AF-9D8A43EF6225}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BDA3A5D-F3CD-461B-98AF-9D8A43EF6225}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AE8E24-1B58-45FA-861A-637B85F8140F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AE8E24-1B58-45FA-861A-637B85F8140F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AE8E24-1B58-45FA-861A-637B85F8140F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AE8E24-1B58-45FA-861A-637B85F8140F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C5FD3E-4CDA-4BBD-8538-F4C6E7CF1739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C5FD3E-4CDA-4BBD-8538-F4C6E7CF1739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C5FD3E-4CDA-4BBD-8538-F4C6E7CF1739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C5FD3E-4CDA-4BBD-8538-F4C6E7CF1739}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

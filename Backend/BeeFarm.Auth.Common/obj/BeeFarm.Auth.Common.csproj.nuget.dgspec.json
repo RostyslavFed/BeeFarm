@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.DAL\\BeeFarm.DAL.csproj": {}
+    "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.Auth.Common\\BeeFarm.Auth.Common.csproj": {}
   },
   "projects": {
-    "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.DAL\\BeeFarm.DAL.csproj": {
+    "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.Auth.Common\\BeeFarm.Auth.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.DAL\\BeeFarm.DAL.csproj",
-        "projectName": "BeeFarm.DAL",
-        "projectPath": "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.DAL\\BeeFarm.DAL.csproj",
+        "projectUniqueName": "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.Auth.Common\\BeeFarm.Auth.Common.csproj",
+        "projectName": "BeeFarm.Auth.Common",
+        "projectPath": "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.Auth.Common\\BeeFarm.Auth.Common.csproj",
         "packagesPath": "C:\\Users\\diffd\\.nuget\\packages\\",
-        "outputPath": "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.DAL\\obj\\",
+        "outputPath": "D:\\ХНУРЕ\\3 Курс\\АтаРК\\Project\\BeeFarm\\Backend\\BeeFarm.Auth.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -42,9 +42,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.8.0, )"
             }
           },
           "imports": [

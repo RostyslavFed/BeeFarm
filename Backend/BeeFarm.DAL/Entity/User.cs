@@ -4,6 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BeeFarm.DAL.Entity
 {
+	public enum Role
+	{
+		User,
+		Admin
+	}
+
 	public class User
 	{
 		[Key]
@@ -29,11 +35,5 @@ namespace BeeFarm.DAL.Entity
 
 		public virtual ICollection<BeeGarden> BeeGardens { get; set; }
 
-	}
-
-	public enum Role
-	{
-		User,
-		Admin
 	}
 }
