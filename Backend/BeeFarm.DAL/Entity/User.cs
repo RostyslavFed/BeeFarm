@@ -31,7 +31,7 @@ namespace BeeFarm.DAL.Entity
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
 
-		public Role[] Roles { get; set; }
+		public Role Role { get; set; }
 
 		public virtual ICollection<BeeGarden> BeeGardens { get; set; }
 

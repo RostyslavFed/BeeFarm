@@ -8,6 +8,7 @@ namespace BeeFarm.DAL.EF
 		public BeeFarmContext(DbContextOptions<BeeFarmContext> options) 
 			: base(options)
 		{
+			Database.EnsureCreated();
 		}
 
 		public DbSet<User> Users { get; set; }

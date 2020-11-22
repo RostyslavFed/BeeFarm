@@ -8,4 +8,8 @@
     <ProjectReference Include="..\BeeFarm.DAL\BeeFarm.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+
 </Project>

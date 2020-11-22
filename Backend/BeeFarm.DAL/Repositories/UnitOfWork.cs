@@ -61,9 +61,13 @@ namespace BeeFarm.DAL.Repositories
 			}
 		}
 
-		public UnitOfWork()
+		public UnitOfWork(string connectionString)
 		{
-			var options = new DbContextOptions<BeeFarmContext>();
+			var optionsBuilder = new DbContextOptionsBuilder<BeeFarmContext>();
+			var options = optionsBuilder
+					.UseSqlServer(connectionString)
+					.Options;
+
 			_beeFarmContext = new BeeFarmContext(options);
 		}
 
