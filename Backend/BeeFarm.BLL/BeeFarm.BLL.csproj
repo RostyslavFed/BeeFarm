@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\BeeFarm.DAL\BeeFarm.DAL.csproj" />
   </ItemGroup>
 
 </Project>
