@@ -17,7 +17,7 @@ namespace BeeFarm.DAL.Repositories
 			_beeFarmContext = beeFarmContext;
 		}
 
-		public void Create(BeeGarden item)
+		public void Insert(BeeGarden item)
 		{
 			_beeFarmContext.BeeGardens.Add(item);
 		}
@@ -33,7 +33,7 @@ namespace BeeFarm.DAL.Repositories
 
 		public IEnumerable<BeeGarden> Find(Func<BeeGarden, bool> predicate)
 		{
-			return _beeFarmContext.BeeGardens.Where(predicate).ToList();
+			return _beeFarmContext.BeeGardens.Where(predicate);
 		}
 
 		public BeeGarden Get(int id)

@@ -36,6 +36,8 @@ namespace BeeFarm.Auth.API
 			}
 
 			app.UseRouting();
+			
+
 
 			app.UseEndpoints(endpoints =>
 			{
