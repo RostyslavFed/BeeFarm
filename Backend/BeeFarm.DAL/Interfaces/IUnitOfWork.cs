@@ -9,7 +9,5 @@ namespace BeeFarm.DAL.Interfaces
         IRepository<Statistics> Statistics { get; }
         IRepository<User> Users { get; }
         void Save();
-
-        //UserManager UserManager { get; }
     }
 }
