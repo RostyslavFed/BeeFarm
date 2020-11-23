@@ -74,5 +74,5 @@ D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Resource.API
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Resource.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Resource.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Resource.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Resource.API\obj\Debug\netcoreapp3.1\BeeFarm.Resource.API.csproj.CoreCompileInputs.cache
-D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Resource.API\obj\Debug\netcoreapp3.1\BeeFarm.Resource.API.MvcApplicationPartsAssemblyInfo.cache
+D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Resource.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Resource.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

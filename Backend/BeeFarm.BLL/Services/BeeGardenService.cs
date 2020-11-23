@@ -1,4 +1,6 @@
-﻿using BeeFarm.BLL.Interfaces;
+﻿using AutoMapper;
+using BeeFarm.BLL.DTO;
+using BeeFarm.BLL.Interfaces;
 using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
 using System.Collections.Generic;
@@ -8,10 +10,12 @@ namespace BeeFarm.BLL.Services
 	public class BeeGardenService : IBeeGardenService
 	{
 		private readonly IUnitOfWork _unitOfWork;
+		private readonly IMapper _mapper;
 
-		public BeeGardenService(IUnitOfWork unitOfWork)
+		public BeeGardenService(IUnitOfWork unitOfWork, IMapper mapper)
 		{
 			_unitOfWork = unitOfWork;
+			_mapper = mapper;
 		}
 
 		public void Delete(int id)
@@ -20,24 +24,28 @@ namespace BeeFarm.BLL.Services
 			_unitOfWork.Save();
 		}
 
-		public BeeGarden GetBeeGarden(int id)
+		public BeeGardenDTO GetBeeGarden(int id)
 		{
-			return _unitOfWork.BeeGardens.Get(id);
+			var beeGarden = _unitOfWork.BeeGardens.Get(id);
+			return _mapper.Map<BeeGardenDTO>(beeGarden);
 		}
 
-		public IEnumerable<BeeGarden> GetBeeGardens()
+		public IEnumerable<BeeGardenDTO> GetBeeGardens()
 		{
-			return _unitOfWork.BeeGardens.GetAll();
+			var beeGardens = _unitOfWork.BeeGardens.GetAll();
+			return _mapper.Map<IEnumerable<BeeGardenDTO>>(beeGardens);
 		}
 
-		public void Insert(BeeGarden beeGarden)
+		public void Insert(BeeGardenDTO beeGardenDto)
 		{
+			var beeGarden = _mapper.Map<BeeGarden>(beeGardenDto);
 			_unitOfWork.BeeGardens.Insert(beeGarden);
 			_unitOfWork.Save();
 		}
 
-		public void Update(BeeGarden beeGarden)
+		public void Update(BeeGardenDTO beeGardenDto)
 		{
+			var beeGarden = _mapper.Map<BeeGarden>(beeGardenDto);
 			_unitOfWork.BeeGardens.Update(beeGarden);
 			_unitOfWork.Save();
 		}

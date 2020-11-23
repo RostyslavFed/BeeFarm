@@ -1,4 +1,6 @@
-﻿using BeeFarm.BLL.Interfaces;
+﻿using AutoMapper;
+using BeeFarm.BLL.DTO;
+using BeeFarm.BLL.Interfaces;
 using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
 using System.Collections.Generic;
@@ -8,10 +10,12 @@ namespace BeeFarm.BLL.Services
 	public class StatisticsService : IStatisticsService
 	{
 		private readonly IUnitOfWork _unitOfWork;
+		private readonly IMapper _mapper;
 
-		public StatisticsService(IUnitOfWork unitOfWork)
+		public StatisticsService(IUnitOfWork unitOfWork, IMapper mapper)
 		{
 			_unitOfWork = unitOfWork;
+			_mapper = mapper;
 		}
 
 		public void Delete(int id)
@@ -20,24 +24,28 @@ namespace BeeFarm.BLL.Services
 			_unitOfWork.Save();
 		}
 
-		public IEnumerable<Statistics> GetBeeStatistics()
+		public IEnumerable<StatisticsDTO> GetStatistics()
 		{
-			return _unitOfWork.Statistics.GetAll();
+			var statistics = _unitOfWork.Statistics.GetAll();
+			return _mapper.Map<IEnumerable<StatisticsDTO>>(statistics);
 		}
 
-		public Statistics GetStatistics(int id)
+		public StatisticsDTO GetStatistics(int id)
 		{
-			return _unitOfWork.Statistics.Get(id);
+			var statistics = _unitOfWork.Statistics.Get(id);
+			return _mapper.Map<StatisticsDTO>(statistics);
 		}
 
-		public void Insert(Statistics statistics)
+		public void Insert(StatisticsDTO statisticsDto)
 		{
+			var statistics = _mapper.Map<Statistics>(statisticsDto);
 			_unitOfWork.Statistics.Insert(statistics);
 			_unitOfWork.Save();
 		}
 
-		public void Update(Statistics statistics)
+		public void Update(StatisticsDTO statisticsDto)
 		{
+			var statistics = _mapper.Map<Statistics>(statisticsDto);
 			_unitOfWork.Statistics.Update(statistics);
 			_unitOfWork.Save();
 		}

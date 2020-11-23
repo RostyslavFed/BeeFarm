@@ -1,14 +1,14 @@
-﻿using BeeFarm.DAL.Entity;
+﻿using BeeFarm.BLL.DTO;
 using System.Collections.Generic;
 
 namespace BeeFarm.BLL.Interfaces
 {
 	public interface IBeehiveService
 	{
-		void Insert(Beehive beehive);
-		void Update(Beehive beehive);
+		void Insert(BeehiveDTO beehiveDto);
+		void Update(BeehiveDTO beehiveDto);
 		void Delete(int id);
-		Beehive GetBeehive(int id);
-		IEnumerable<Beehive> GetBeehives();
+		BeehiveDTO GetBeehive(int id);
+		IEnumerable<BeehiveDTO> GetBeehives();
 	}
 }

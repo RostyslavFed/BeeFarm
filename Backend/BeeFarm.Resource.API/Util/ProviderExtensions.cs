@@ -1,4 +1,6 @@
-﻿using BeeFarm.BLL.Interfaces;
+﻿using AutoMapper;
+using BeeFarm.BLL.Infrastructure;
+using BeeFarm.BLL.Interfaces;
 using BeeFarm.BLL.Services;
 using BeeFarm.DAL.Interfaces;
 using BeeFarm.DAL.Repositories;
@@ -19,6 +21,17 @@ namespace BeeFarm.Resource.API.Util
 		public static void AddContextService(this IServiceCollection services, string connetionString)
 		{
 			services.AddSingleton<IUnitOfWork>(new UnitOfWork(connetionString));
+		}
+
+		public static void AddAutoMapper(this IServiceCollection services)
+		{
+			var mapperConfig = new MapperConfiguration(mc =>
+			{
+				mc.AddProfile(new MappingProfile());
+			});
+
+			IMapper mapper = mapperConfig.CreateMapper();
+			services.AddSingleton(mapper);
 		}
 	}
 }

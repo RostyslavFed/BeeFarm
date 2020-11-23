@@ -1,14 +1,14 @@
-﻿using BeeFarm.DAL.Entity;
+﻿using BeeFarm.BLL.DTO;
 using System.Collections.Generic;
 
 namespace BeeFarm.BLL.Interfaces
 {
 	public interface IStatisticsService
 	{
-		void Insert(Statistics statistics);
-		void Update(Statistics statistics);
+		void Insert(StatisticsDTO statisticsDto);
+		void Update(StatisticsDTO statisticsDto);
 		void Delete(int id);
-		Statistics GetStatistics(int id);
-		IEnumerable<Statistics> GetBeeStatistics();
+		StatisticsDTO GetStatistics(int id);
+		IEnumerable<StatisticsDTO> GetStatistics();
 	}
 }

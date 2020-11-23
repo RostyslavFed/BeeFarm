@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BeeFarm.DAL\BeeFarm.DAL.csproj" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
+    <ProjectReference Include="..\BeeFarm.DAL\BeeFarm.DAL.csproj" />
   </ItemGroup>
 
 </Project>

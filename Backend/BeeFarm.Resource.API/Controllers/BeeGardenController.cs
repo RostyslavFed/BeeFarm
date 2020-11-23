@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using BeeFarm.BLL.DTO;
 using BeeFarm.BLL.Interfaces;
-using BeeFarm.DAL.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeeFarm.Resource.API.Controllers
@@ -18,14 +18,14 @@ namespace BeeFarm.Resource.API.Controllers
 
 		//GET: api/beegarden
 		[HttpGet]
-		public IEnumerable<BeeGarden> Get()
+		public IEnumerable<BeeGardenDTO> Get()
 		{
 			return _beeGardenService.GetBeeGardens();
 		}
 
 		// GET api/<beegarden/5
 		[HttpGet("{id}")]
-		public BeeGarden Get(int id)
+		public BeeGardenDTO Get(int id)
 		{
 			return _beeGardenService.GetBeeGarden(id);
 		}

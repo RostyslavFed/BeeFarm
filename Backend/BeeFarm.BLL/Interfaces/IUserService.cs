@@ -1,14 +1,14 @@
-﻿using BeeFarm.DAL.Entity;
+﻿using BeeFarm.BLL.DTO;
 using System.Collections.Generic;
 
 namespace BeeFarm.BLL.Interfaces
 {
 	public interface IUserService
 	{
-		void Insert(User user);
-		void Update(User user);
+		void Insert(UserDTO userDto);
+		void Update(UserDTO userDto);
 		void Delete(int id);
-		User GetUser(int id);
-		IEnumerable<User> GetUsers();
+		UserDTO GetUser(int id);
+		IEnumerable<UserDTO> GetUsers();
 	}
 }

@@ -1,4 +1,6 @@
-﻿using BeeFarm.BLL.Interfaces;
+﻿using AutoMapper;
+using BeeFarm.BLL.DTO;
+using BeeFarm.BLL.Interfaces;
 using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
 using System.Collections.Generic;
@@ -8,10 +10,12 @@ namespace BeeFarm.BLL.Services
 	public class UserService : IUserService
 	{
 		private readonly IUnitOfWork _unitOfWork;
+		private readonly IMapper _mapper;
 
-		public UserService(IUnitOfWork unitOfWork)
+		public UserService(IUnitOfWork unitOfWork, IMapper mapper)
 		{
 			_unitOfWork = unitOfWork;
+			_mapper = mapper;
 		}
 
 		public void Delete(int id)
@@ -20,24 +24,28 @@ namespace BeeFarm.BLL.Services
 			_unitOfWork.Save();
 		}
 
-		public User GetUser(int id)
+		public UserDTO GetUser(int id)
 		{
-			return _unitOfWork.Users.Get(id);
+			var user = _unitOfWork.Users.Get(id);
+			return _mapper.Map<UserDTO>(user);
 		}
 
-		public IEnumerable<User> GetUsers()
+		public IEnumerable<UserDTO> GetUsers()
 		{
-			return _unitOfWork.Users.GetAll();
+			var users = _unitOfWork.Users.GetAll();
+			return _mapper.Map<IEnumerable<UserDTO>>(users);
 		}
 
-		public void Insert(User user)
+		public void Insert(UserDTO userDto)
 		{
+			var user = _mapper.Map<User>(userDto);
 			_unitOfWork.Users.Insert(user);
 			_unitOfWork.Save();
 		}
 
-		public void Update(User user)
+		public void Update(UserDTO userDto)
 		{
+			var user = _mapper.Map<User>(userDto);
 			_unitOfWork.Users.Update(user);
 			_unitOfWork.Save();
 		}
