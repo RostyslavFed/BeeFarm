@@ -3,21 +3,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-using System.IO;
 using BeeFarm.Resource.API.Util;
 
 namespace BeeFarm.Resource.API
 {
 	public class Startup
 	{
-		public IConfigurationRoot Configuration { get; } 
+		public IConfiguration Configuration { get; } 
 
-		public Startup()
+		public Startup(IConfiguration configuration)
 		{
-			var builder = new ConfigurationBuilder();
-			builder.SetBasePath(Directory.GetCurrentDirectory());
-			builder.AddJsonFile("appsettings.json");
-			Configuration = builder.Build();
+			Configuration = configuration;
 		}
 
 		// This method gets called by the runtime. Use this method to add services to the container.
@@ -42,6 +38,9 @@ namespace BeeFarm.Resource.API
 			}
 
 			app.UseRouting();
+
+			app.UseAuthentication();
+			app.UseAuthorization();
 
 			app.UseCors();
 

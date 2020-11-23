@@ -10,10 +10,10 @@ namespace BeeFarm.Resource.API.Util
 	{
 		public static void AddServices(this IServiceCollection services)
 		{
-			services.AddTransient<IBeeGardenService, BeeGardenService>();
-			services.AddTransient<IBeehiveService, BeehiveService>();
-			services.AddTransient<IStatisticsService, StatisticsService>();
-			services.AddTransient<IUserService, UserService>();
+			services.AddSingleton<IBeeGardenService, BeeGardenService>();
+			services.AddSingleton<IBeehiveService, BeehiveService>();
+			services.AddSingleton<IStatisticsService, StatisticsService>();
+			services.AddSingleton<IUserService, UserService>();
 		}
 
 		public static void AddContextService(this IServiceCollection services, string connetionString)
