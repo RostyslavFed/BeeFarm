@@ -54,11 +54,10 @@ namespace BeeFarm.Auth.API
 			}
 
 			app.UseRouting();
+			app.UseCors();
 
 			app.UseAuthentication();
 			app.UseAuthorization();
-
-			app.UseCors();
 
 			app.UseEndpoints(endpoints =>
 			{

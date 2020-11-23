@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Security.Claims;
 using BeeFarm.BLL.DTO;
 using BeeFarm.BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeeFarm.Resource.API.Controllers
@@ -10,18 +13,29 @@ namespace BeeFarm.Resource.API.Controllers
 	public class BeeGardenController : ControllerBase
 	{
 		private readonly IBeeGardenService _beeGardenService;
+		private Guid UserId => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
 		public BeeGardenController(IBeeGardenService beeGardenService)
 		{
 			_beeGardenService = beeGardenService;
 		}
 
-		//GET: api/beegarden
 		[HttpGet]
-		public IEnumerable<BeeGardenDTO> Get()
+		[Authorize (Roles = "User")]
+		[Route("")]
+		public IActionResult Get()
 		{
-			return _beeGardenService.GetBeeGardens();
+			return Ok(_beeGardenService.GetBeeGardens());
 		}
+
+
+
+
+
+
+
+
+
 
 		// GET api/<beegarden/5
 		[HttpGet("{id}")]
