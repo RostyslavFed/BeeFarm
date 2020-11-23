@@ -1,7 +1,7 @@
 using BeeFarm.Auth.Common;
+using BeeFarm.BLL.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +25,24 @@ namespace BeeFarm.Auth.API
 
 			var authOptionConfiguration = Configuration.GetSection("Auth");
 			services.Configure<AuthOptions>(authOptionConfiguration);
+
+			services.AddServices();
+
+			string connectionString = Configuration.GetConnectionString("DefaultConnection");
+			services.AddContextService(connectionString);
+
+			services.AddAutoMapper();
+
+			services.AddCors(options =>
+			{
+				options.AddDefaultPolicy(
+					builder =>
+					{
+						builder.AllowAnyOrigin()
+							.AllowAnyMethod()
+							.AllowAnyHeader();
+					});
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,15 +54,15 @@ namespace BeeFarm.Auth.API
 			}
 
 			app.UseRouting();
-			
 
+			app.UseAuthentication();
+			app.UseAuthorization();
+
+			app.UseCors();
 
 			app.UseEndpoints(endpoints =>
 			{
-				endpoints.MapGet("/", async context =>
-				{
-					await context.Response.WriteAsync("Hello World!");
-				});
+				endpoints.MapControllers();
 			});
 		}
 	}

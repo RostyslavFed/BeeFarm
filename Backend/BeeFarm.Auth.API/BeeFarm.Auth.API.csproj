@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BeeFarm.Auth.Common\BeeFarm.Auth.Common.csproj" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\BeeFarm.Auth.Common\BeeFarm.Auth.Common.csproj" />
+    <ProjectReference Include="..\BeeFarm.BLL\BeeFarm.BLL.csproj" />
   </ItemGroup>
 
 </Project>

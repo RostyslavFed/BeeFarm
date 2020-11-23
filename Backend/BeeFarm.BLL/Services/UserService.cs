@@ -4,6 +4,7 @@ using BeeFarm.BLL.Interfaces;
 using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BeeFarm.BLL.Services
 {
@@ -48,6 +49,14 @@ namespace BeeFarm.BLL.Services
 			var user = _mapper.Map<User>(userDto);
 			_unitOfWork.Users.Update(user);
 			_unitOfWork.Save();
+		}
+
+		public UserDTO GetUser(string emailAddress, string password)
+		{
+			var user = _unitOfWork.Users
+				.Find(u => u.EmailAddress == emailAddress && u.Password == password)
+				.FirstOrDefault();
+			return _mapper.Map<UserDTO>(user);
 		}
 	}
 }

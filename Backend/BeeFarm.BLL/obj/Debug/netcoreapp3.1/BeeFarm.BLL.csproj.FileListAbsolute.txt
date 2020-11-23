@@ -9,3 +9,4 @@ D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.BLL\obj\Debu
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.BLL\bin\Debug\netcoreapp3.1\BeeFarm.DAL.dll
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.BLL\bin\Debug\netcoreapp3.1\BeeFarm.DAL.pdb
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.BLL\obj\Debug\netcoreapp3.1\BeeFarm.BLL.csproj.CopyComplete
+D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.BLL\obj\Debug\netcoreapp3.1\BeeFarm.BLL.csproj.CoreCompileInputs.cache

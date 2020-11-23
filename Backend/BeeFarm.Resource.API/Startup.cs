@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-using BeeFarm.Resource.API.Util;
+using BeeFarm.BLL.Infrastructure;
 
 namespace BeeFarm.Resource.API
 {
@@ -21,7 +21,6 @@ namespace BeeFarm.Resource.API
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllers();
-
 
 			services.AddServices();
 
