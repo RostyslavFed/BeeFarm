@@ -4,7 +4,7 @@ namespace BeeFarm.BLL.DTO
 {
 	public class UserDTO
 	{
-		public Guid Id { get; set; }
+		public int Id { get; set; }
 
 		public string FirstName { get; set; }
 
@@ -12,10 +12,10 @@ namespace BeeFarm.BLL.DTO
 
 		public DateTime Birthday { get; set; }
 
-		public string EmailAddress { get; set; }
+		public string Email { get; set; }
 
 		public string Password { get; set; }
 
-		//Roles ???
+		public string Role { get; set; }
 	}
 }

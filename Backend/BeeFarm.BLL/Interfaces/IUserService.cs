@@ -11,6 +11,6 @@ namespace BeeFarm.BLL.Interfaces
 		UserDTO GetUser(int id);
 		IEnumerable<UserDTO> GetUsers();
 
-		UserDTO GetUser(string emailAddress, string password);
+		UserDTO GetUser(string email, string password);
 	}
 }

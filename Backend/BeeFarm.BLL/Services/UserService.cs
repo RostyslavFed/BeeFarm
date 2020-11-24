@@ -51,10 +51,10 @@ namespace BeeFarm.BLL.Services
 			_unitOfWork.Save();
 		}
 
-		public UserDTO GetUser(string emailAddress, string password)
+		public UserDTO GetUser(string email, string password)
 		{
 			var user = _unitOfWork.Users
-				.Find(u => u.EmailAddress == emailAddress && u.Password == password)
+				.Find(u => u.Email == email && u.Password == password)
 				.FirstOrDefault();
 			return _mapper.Map<UserDTO>(user);
 		}

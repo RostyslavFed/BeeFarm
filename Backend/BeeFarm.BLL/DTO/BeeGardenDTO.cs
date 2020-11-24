@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace BeeFarm.BLL.DTO
 {
 	public class BeeGardenDTO
@@ -10,6 +9,6 @@ namespace BeeFarm.BLL.DTO
 
 		public string Description { get; set; }
 
-		public Guid? UserId { get; set; }
+		public int? UserId { get; set; }
 	}
 }

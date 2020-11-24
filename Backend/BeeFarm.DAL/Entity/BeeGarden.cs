@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BeeFarm.DAL.Entity
@@ -13,7 +12,7 @@ namespace BeeFarm.DAL.Entity
 
 		public string Description { get; set; }
 
-		public Guid? UserId { get; set; }
+		public int? UserId { get; set; }
 
 		public virtual User User { get; set; }
 

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using BeeFarm.BLL.DTO;
+﻿using BeeFarm.BLL.DTO;
 using BeeFarm.BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeeFarm.Resource.API.Controllers
@@ -10,17 +10,20 @@ namespace BeeFarm.Resource.API.Controllers
 	public class BeeGardenController : ControllerBase
 	{
 		private readonly IBeeGardenService _beeGardenService;
+		private readonly IUserService _userService;
 
-		public BeeGardenController(IBeeGardenService beeGardenService)
+		public BeeGardenController(IBeeGardenService beeGardenService, IUserService userService)
 		{
 			_beeGardenService = beeGardenService;
+			_userService = userService;
 		}
 
 		//GET: api/beegarden
 		[HttpGet]
-		public IEnumerable<BeeGardenDTO> Get()
+		[Authorize (Roles = "admin,user")]
+		public IActionResult Get()
 		{
-			return _beeGardenService.GetBeeGardens();
+			return Ok(_userService.GetUsers());
 		}
 
 		// GET api/<beegarden/5

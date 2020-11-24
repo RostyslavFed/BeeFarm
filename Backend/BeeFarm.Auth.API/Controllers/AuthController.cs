@@ -30,7 +30,6 @@ namespace BeeFarm.Auth.API.Controllers
 		public IActionResult Login([FromBody]Login request)
 		{
 			var user = _userService.GetUser(request.Email, request.Password);
-			//var user = _userService.GetUser(email, password);
 			
 			if (user != null)
 			{
@@ -54,15 +53,11 @@ namespace BeeFarm.Auth.API.Controllers
 
 			var claims = new List<Claim>
 			{
-				new Claim(JwtRegisteredClaimNames.Email, user.EmailAddress),
+				new Claim(JwtRegisteredClaimNames.Email, user.Email),
 				new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString())
 			};
 
-			// add roles
-			//foreach(string role in user.R)
-			//{
-			//	claims.Add(new Claim("role", role.ToSting()));
-			//}
+			claims.Add(new Claim("role", user.Role));
 
 			var token = new JwtSecurityToken(authParams.Issuer,
 				authParams.Audience,

@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeeFarm.DAL.Entity
 {
-	public enum Role
-	{
-		User,
-		Admin
-	}
-
 	public class User
 	{
 		[Key]
-		public Guid Id { get; set; }
+		//[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int Id { get; set; }
 
 		[Required(ErrorMessage = "Field must be set")]
 		public string FirstName { get; set; }
@@ -26,14 +22,13 @@ namespace BeeFarm.DAL.Entity
 		public DateTime Birthday { get; set; }
 
 		[DataType(DataType.EmailAddress)]
-		public string EmailAddress { get; set; }
+		public string Email { get; set; }
 
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
 
-		public Role Role { get; set; }
+		public string Role { get; set; }
 
 		public virtual ICollection<BeeGarden> BeeGardens { get; set; }
-
 	}
 }

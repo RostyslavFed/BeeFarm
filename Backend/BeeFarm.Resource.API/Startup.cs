@@ -4,6 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using BeeFarm.BLL.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using BeeFarm.Auth.Common;
 
 namespace BeeFarm.Resource.API
 {
@@ -24,10 +27,41 @@ namespace BeeFarm.Resource.API
 
 			services.AddServices();
 
+			var authOptions = Configuration.GetSection("Auth").Get<AuthOptions>();
+			services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+				.AddJwtBearer(options =>
+				{
+					options.RequireHttpsMetadata = true;
+					options.TokenValidationParameters = new TokenValidationParameters
+					{
+						ValidateIssuer = true,
+						ValidIssuer = authOptions.Issuer,
+
+						ValidateAudience = true,
+						ValidAudience = authOptions.Audience,
+
+						ValidateLifetime = true,
+
+						IssuerSigningKey = authOptions.GetSymmetricSecurityKey(),
+						ValidateIssuerSigningKey = true
+					};
+				});
+
 			string connectionString = Configuration.GetConnectionString("DefaultConnection");
 			services.AddContextService(connectionString);
 
 			services.AddAutoMapper();
+
+			services.AddCors(options =>
+			{
+				options.AddDefaultPolicy(
+					builder =>
+					{
+						builder.AllowAnyOrigin()
+							.AllowAnyMethod()
+							.AllowAnyHeader();
+					});
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
