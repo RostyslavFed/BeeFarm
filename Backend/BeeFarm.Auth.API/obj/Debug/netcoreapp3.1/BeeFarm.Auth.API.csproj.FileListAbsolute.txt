@@ -67,3 +67,8 @@ D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\bin
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\bin\Debug\netcoreapp3.1\BeeFarm.DAL.pdb
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\obj\Debug\netcoreapp3.1\BeeFarm.Auth.API.csproj.CoreCompileInputs.cache
 D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\obj\Debug\netcoreapp3.1\BeeFarm.Auth.API.MvcApplicationPartsAssemblyInfo.cache
+D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\ХНУРЕ\3 Курс\АтаРК\Project\BeeFarm\Backend\BeeFarm.Auth.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll

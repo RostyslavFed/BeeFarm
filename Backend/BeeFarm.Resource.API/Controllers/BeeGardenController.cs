@@ -13,19 +13,21 @@ namespace BeeFarm.Resource.API.Controllers
 	public class BeeGardenController : ControllerBase
 	{
 		private readonly IBeeGardenService _beeGardenService;
+		private readonly IUserService _userService;
 		private Guid UserId => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
-		public BeeGardenController(IBeeGardenService beeGardenService)
+		public BeeGardenController(IBeeGardenService beeGardenService, IUserService userService)
 		{
 			_beeGardenService = beeGardenService;
+			_userService = userService;
 		}
 
 		[HttpGet]
-		[Authorize (Roles = "User")]
+		//[Authorize (Roles = "User")]
 		[Route("")]
 		public IActionResult Get()
 		{
-			return Ok(_beeGardenService.GetBeeGardens());
+			return Ok(_userService.GetUsers());
 		}
 
 

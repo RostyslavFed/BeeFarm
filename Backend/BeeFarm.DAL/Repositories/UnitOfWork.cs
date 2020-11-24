@@ -1,5 +1,6 @@
 ﻿using BeeFarm.DAL.EF;
 using BeeFarm.DAL.Entity;
+using BeeFarm.DAL.Identity;
 using BeeFarm.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ namespace BeeFarm.DAL.Repositories
 		private BeehiveRepository _beehiveRepository;
 		private StatisticsRepository _statisticsRepository;
 		private UserRepository _userRepository;
+		private UserManager _userManager;
 
 		public IRepository<BeeGarden> BeeGardens
 		{
@@ -58,6 +60,18 @@ namespace BeeFarm.DAL.Repositories
 					_userRepository = new UserRepository(_beeFarmContext);
 				}
 				return _userRepository;
+			}
+		}
+
+		public UserManager UserManager
+		{
+			get
+			{
+				if (_userManager == null)
+				{
+					_userManager = new UserManager(_beeFarmContext);
+				}
+				return _userManager;
 			}
 		}
 

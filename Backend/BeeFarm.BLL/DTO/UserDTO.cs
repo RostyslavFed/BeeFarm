@@ -12,10 +12,10 @@ namespace BeeFarm.BLL.DTO
 
 		public DateTime Birthday { get; set; }
 
-		public string EmailAddress { get; set; }
+		public string Email { get; set; }
 
 		public string Password { get; set; }
 
-		//Roles ???
+		public string[] Roles { get; set; }
 	}
 }

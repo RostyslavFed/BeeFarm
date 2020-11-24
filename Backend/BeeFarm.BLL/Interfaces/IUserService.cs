@@ -1,4 +1,5 @@
 ﻿using BeeFarm.BLL.DTO;
+using System;
 using System.Collections.Generic;
 
 namespace BeeFarm.BLL.Interfaces
@@ -7,10 +8,9 @@ namespace BeeFarm.BLL.Interfaces
 	{
 		void Insert(UserDTO userDto);
 		void Update(UserDTO userDto);
-		void Delete(int id);
-		UserDTO GetUser(int id);
+		void Delete(Guid id);
+		UserDTO GetUser(Guid id);
 		IEnumerable<UserDTO> GetUsers();
-
-		UserDTO GetUser(string emailAddress, string password);
+		UserDTO GetUser(string email, string password);
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using BeeFarm.DAL.Entity;
+using BeeFarm.DAL.Identity;
 
 namespace BeeFarm.DAL.Interfaces
 {
@@ -7,7 +8,8 @@ namespace BeeFarm.DAL.Interfaces
         IRepository<BeeGarden> BeeGardens { get; }
         IRepository<Beehive> Beehives { get; }
         IRepository<Statistics> Statistics { get; }
-        IRepository<User> Users { get; }
+        IRepository<User> Users { get; } //??
+        UserManager UserManager { get; }
         void Save();
     }
 }
