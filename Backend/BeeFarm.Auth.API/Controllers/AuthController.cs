@@ -27,7 +27,7 @@ namespace BeeFarm.Auth.API.Controllers
 
 		[Route("login")]
 		[HttpPost]
-		public IActionResult Login([FromBody]Login request)
+		public IActionResult Login([FromBody] Login request)
 		{
 			var user = _userService.GetUser(request.Email, request.Password);
 			

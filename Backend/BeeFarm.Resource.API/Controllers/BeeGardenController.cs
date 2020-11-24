@@ -5,49 +5,44 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BeeFarm.Resource.API.Controllers
 {
+	//[Authorize(Roles = "admin, user")]
 	[Route("api/[controller]")]
 	[ApiController]
 	public class BeeGardenController : ControllerBase
 	{
 		private readonly IBeeGardenService _beeGardenService;
-		private readonly IUserService _userService;
 
-		public BeeGardenController(IBeeGardenService beeGardenService, IUserService userService)
+		public BeeGardenController(IBeeGardenService beeGardenService)
 		{
 			_beeGardenService = beeGardenService;
-			_userService = userService;
 		}
 
-		//GET: api/beegarden
+		//[Authorize (Roles = "admin, user")]
 		[HttpGet]
-		[Authorize (Roles = "admin,user")]
 		public IActionResult Get()
 		{
-			return Ok(_userService.GetUsers());
+			return Ok(_beeGardenService.GetBeeGardens());
 		}
 
-		// GET api/<beegarden/5
 		[HttpGet("{id}")]
-		public BeeGardenDTO Get(int id)
+		public IActionResult Get(int id)
 		{
-			return _beeGardenService.GetBeeGarden(id);
+			return Ok(_beeGardenService.GetBeeGarden(id));
 		}
 
-		// POST api/beegarden
-		//[HttpPost]
-		//public void Post([FromBody] string value)
-		//{
+		[HttpPost]
+		public void Post([FromBody] BeeGardenDTO beeGarden)
+		{
+			_beeGardenService.Insert(beeGarden);
+		}
 
-		//}
+		[HttpPut("{id}")]
+		public void Put(int id, [FromBody] BeeGardenDTO beeGarden)
+		{
+			beeGarden.Id = id;
+			_beeGardenService.Update(beeGarden);
+		}
 
-		//// PUT api/beegarden/5
-		//[HttpPut("{id}")]
-		//public void Put(int id, [FromBody] string value)
-		//{
-
-		//}
-
-		// DELETE api/beegarden/5
 		[HttpDelete("{id}")]
 		public IActionResult Delete(int id)
 		{

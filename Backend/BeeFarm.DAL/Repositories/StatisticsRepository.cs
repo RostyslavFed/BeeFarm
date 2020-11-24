@@ -48,7 +48,7 @@ namespace BeeFarm.DAL.Repositories
 
 		public void Update(Statistics item)
 		{
-			_beeFarmContext.Entry(item).State = EntityState.Modified;
+			_beeFarmContext.Update(item);
 		}
 	}
 }

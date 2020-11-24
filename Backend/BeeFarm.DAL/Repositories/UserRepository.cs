@@ -2,6 +2,7 @@
 using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -48,7 +49,7 @@ namespace BeeFarm.DAL.Repositories
 
 		public void Update(User item)
 		{
-			_beeFarmContext.Entry(item).State = EntityState.Modified;
+			_beeFarmContext.Update(item);
 		}
 	}
 }

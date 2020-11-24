@@ -8,10 +8,10 @@ namespace BeeFarm.BLL.Infrastructure
 	{
 		public MappingProfile()
 		{
-			CreateMap<BeeGarden, BeeGardenDTO>();
-			CreateMap<Beehive, BeehiveDTO>();
-			CreateMap<Statistics, StatisticsDTO>();
-			CreateMap<User, UserDTO>();
+			CreateMap<BeeGarden, BeeGardenDTO>().ReverseMap();
+			CreateMap<Beehive, BeehiveDTO>().ReverseMap();
+			CreateMap<Statistics, StatisticsDTO>().ReverseMap();
+			CreateMap<User, UserDTO>().ReverseMap();
 		}
 	}
 }

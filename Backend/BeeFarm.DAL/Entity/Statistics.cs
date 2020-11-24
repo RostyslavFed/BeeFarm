@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BeeFarm.DAL.Entity
 {
@@ -6,6 +7,8 @@ namespace BeeFarm.DAL.Entity
 	{
 		[Key]
 		public int Id { get; set; }
+
+		public DateTime DateTime { get; set; }
 
 		public double Temperature { get; set; }
 
@@ -19,6 +22,5 @@ namespace BeeFarm.DAL.Entity
 		public int? BeehiveId { get; set; }
 
 		public virtual Beehive Beehive { get; set; }
-
 	}
 }
