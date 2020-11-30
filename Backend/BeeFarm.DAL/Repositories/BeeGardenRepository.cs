@@ -4,7 +4,6 @@ using BeeFarm.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 namespace BeeFarm.DAL.Repositories
 {
@@ -27,6 +26,9 @@ namespace BeeFarm.DAL.Repositories
 			var beeGarden = _beeFarmContext.BeeGardens.Find(id);
 			if (beeGarden != null)
 			{
+				_beeFarmContext.Entry(beeGarden)
+					.Collection(u => u.Beehives)
+					.Load();
 				_beeFarmContext.BeeGardens.Remove(beeGarden);
 			}
 		}
