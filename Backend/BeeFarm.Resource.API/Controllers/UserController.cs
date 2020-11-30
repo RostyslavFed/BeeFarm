@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BeeFarm.Resource.API.Controllers
 {
-	[Authorize(Roles = "admin")]
+	//[Authorize(Roles = "admin")]
 	[Route("api/[controller]")]
 	[ApiController]
 	public class UserController : ControllerBase

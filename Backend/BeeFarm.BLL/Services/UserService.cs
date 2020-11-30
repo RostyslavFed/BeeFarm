@@ -5,6 +5,7 @@ using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using BeeFarm.BLL.Infrastructure;
 
 namespace BeeFarm.BLL.Services
 {
@@ -40,6 +41,7 @@ namespace BeeFarm.BLL.Services
 		public void Insert(UserDTO userDto)
 		{
 			var user = _mapper.Map<User>(userDto);
+			user.Password = HashAlgorithm.CreateMD5(userDto.Password);
 			_unitOfWork.Users.Insert(user);
 			_unitOfWork.Save();
 		}
@@ -53,8 +55,9 @@ namespace BeeFarm.BLL.Services
 
 		public UserDTO GetUser(string email, string password)
 		{
+			var passwordHash = HashAlgorithm.CreateMD5(password);
 			var user = _unitOfWork.Users
-				.Find(u => u.Email == email && u.Password == password)
+				.Find(u => u.Email == email && u.Password == passwordHash)
 				.FirstOrDefault();
 			return _mapper.Map<UserDTO>(user);
 		}
