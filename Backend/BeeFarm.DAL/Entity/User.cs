@@ -24,15 +24,18 @@ namespace BeeFarm.DAL.Entity
 		public DateTime Birthday { get; set; }
 
 		[Required]
+		[StringLength(50)]
 		[DataType(DataType.EmailAddress)]
 		[RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Zaz]{2,4}")]
 		public string Email { get; set; }
 
 		[Required]
+		[StringLength(50)]
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
 
 		[Required]
+		[StringLength(50)]
 		public string Role { get; set; }
 
 		public virtual ICollection<BeeGarden> BeeGardens { get; set; }

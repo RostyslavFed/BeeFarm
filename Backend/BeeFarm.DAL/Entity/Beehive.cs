@@ -10,8 +10,10 @@ namespace BeeFarm.DAL.Entity
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
+		[StringLength(50)]
 		public string Name { get; set; }
 
+		[StringLength(50)]
 		public string Type { get; set; }
 
 		public int NumberOfTheFrames { get; set; }

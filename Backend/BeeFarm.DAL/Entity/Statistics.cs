@@ -19,6 +19,7 @@ namespace BeeFarm.DAL.Entity
 
 		public double Weight { get; set; }
 
+		[StringLength(50)]
 		public string Location { get; set; }
 
 
