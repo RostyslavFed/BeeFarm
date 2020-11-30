@@ -1,13 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeeFarm.DAL.Entity
 {
 	public class Statistics
 	{
-		[Key]
+		[Key, Column(Order = 1)]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
+		[Required]
 		public DateTime DateTime { get; set; }
 
 		public double Temperature { get; set; }

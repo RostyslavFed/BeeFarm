@@ -7,26 +7,32 @@ namespace BeeFarm.DAL.Entity
 {
 	public class User
 	{
-		[Key]
-		//[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		[Key, Column(Order = 1)]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
-		[Required(ErrorMessage = "Field must be set")]
+		[Required]
+		[StringLength(50, MinimumLength = 3)]
 		public string FirstName { get; set; }
 
-		[Required(ErrorMessage = "Field must be set")]
+		[Required]
+		[StringLength(50, MinimumLength = 3)]
 		public string SecondName { get; set; }
 
-		[Required(ErrorMessage = "Field must be set")]
+		[Required]
 		[DataType(DataType.Date)]
 		public DateTime Birthday { get; set; }
 
+		[Required]
 		[DataType(DataType.EmailAddress)]
+		[RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Zaz]{2,4}")]
 		public string Email { get; set; }
 
+		[Required]
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
 
+		[Required]
 		public string Role { get; set; }
 
 		public virtual ICollection<BeeGarden> BeeGardens { get; set; }
