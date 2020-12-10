@@ -7,8 +7,10 @@ namespace BeeFarm.BLL.Interfaces
 	{
 		void Insert(BeehiveDTO beehiveDto);
 		void Update(BeehiveDTO beehiveDto);
-		void Delete(int id);
-		BeehiveDTO GetBeehive(int id);
+		void Delete(int beehiveId);
+		BeehiveDTO GetBeehive(int beehiveId);
+		BeehiveDTO GetBeehive(int beehiveId, int beeGardenId);
 		IEnumerable<BeehiveDTO> GetBeehives();
+		IEnumerable<BeehiveDTO> GetBeehives(int beeGardenId);
 	}
 }

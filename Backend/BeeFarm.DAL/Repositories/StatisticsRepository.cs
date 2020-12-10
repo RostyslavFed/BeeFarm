@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BeeFarm.DAL.Repositories
 {
-	public class StatisticsRepository : IRepository<Statistics>
+	public class StatisticsRepository : IRepository<Statistic>
 	{
 		private readonly BeeFarmContext _beeFarmContext;
 
@@ -25,27 +25,27 @@ namespace BeeFarm.DAL.Repositories
 			}
 		}
 
-		public IEnumerable<Statistics> Find(Func<Statistics, bool> predicate)
+		public IEnumerable<Statistic> Find(Func<Statistic, bool> predicate)
 		{
 			return _beeFarmContext.Statistics.Where(predicate);
 		}
 
-		public Statistics Get(int id)
+		public Statistic Get(int id)
 		{
 			return _beeFarmContext.Statistics.Find(id);
 		}
 
-		public IEnumerable<Statistics> GetAll()
+		public IEnumerable<Statistic> GetAll()
 		{
 			return _beeFarmContext.Statistics;
 		}
 
-		public void Insert(Statistics item)
+		public void Insert(Statistic item)
 		{
 			_beeFarmContext.Statistics.Add(item);
 		}
 
-		public void Update(Statistics item)
+		public void Update(Statistic item)
 		{
 			_beeFarmContext.Update(item);
 		}

@@ -14,7 +14,5 @@ namespace BeeFarm.BLL.DTO
 		public int YearOfTheQueenBee { get; set; }
 
 		public string Description { get; set; }
-
-		public int? BeeGardenId { get; set; }
 	}
 }

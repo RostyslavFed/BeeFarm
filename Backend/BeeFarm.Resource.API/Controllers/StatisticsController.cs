@@ -1,40 +1,67 @@
 ﻿using BeeFarm.BLL.DTO;
 using BeeFarm.BLL.Interfaces;
+using BeeFarm.Resource.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System;
 
 namespace BeeFarm.Resource.API.Controllers
 {
-	[Route("api/[controller]")]
+	//[Authorize(Roles = "admin, user")]
+	[Route("api/statistics")]
 	[ApiController]
 	public class StatisticsController : ControllerBase
 	{
-		private readonly IStatisticsService _statisticsService;
+		private readonly IStatisticService _statisticsService;
 
-		public StatisticsController(IStatisticsService statisticsService)
+		public StatisticsController(IStatisticService statisticsService)
 		{
 			_statisticsService = statisticsService;
 		}
 
 		[HttpGet]
-		public IActionResult Get()
+		public IActionResult GetAll()
 		{
-			return Ok(_statisticsService.GetStatistics());
+			var statistics = _statisticsService.GetStatistics();
+			if (statistics.Count() > 0)
+			{
+				return Ok(statistics);
+			}
+			return NoContent();
 		}
 
-		[HttpGet("{id}")]
-		public IActionResult Get(int id)
+		[HttpGet("{statisticId}")]
+		public IActionResult GetById(int statisticId)
 		{
-			return Ok(_statisticsService.GetStatistics(id));
+			var statistic = _statisticsService.GetStatistic(statisticId);
+			if (statistic != null)
+			{
+				return Ok(statistic);
+			}
+			return NoContent();
 		}
+
+		[HttpGet("interval/{beehiveId}/{start:datetime}/{end:datetime}")]
+		public IActionResult GetByIdAndInterval(int beehiveId, DateTime start, DateTime end)
+		{
+			var statistics = _statisticsService.GetStatistics(beehiveId, start, end);
+			if (statistics.Count() > 0)
+			{
+				return Ok(statistics);
+			}
+			return NoContent();
+		}
+
+
 
 		[HttpPost]
-		public void Post([FromBody] StatisticsDTO statistics)
+		public void Post([FromBody] StatisticDTO statistics)
 		{
 			_statisticsService.Insert(statistics);
 		}
 
 		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] StatisticsDTO statistics)
+		public void Put(int id, [FromBody] StatisticDTO statistics)
 		{
 			statistics.Id = id;
 			_statisticsService.Update(statistics);

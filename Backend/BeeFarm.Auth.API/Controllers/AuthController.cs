@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BeeFarm.Auth.API.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/auth")]
 	[ApiController]
 	public class AuthController : ControllerBase
 	{

@@ -29,7 +29,7 @@ namespace BeeFarm.BLL.Infrastructure
 		{
 			services.AddSingleton<IBeeGardenService, BeeGardenService>();
 			services.AddSingleton<IBeehiveService, BeehiveService>();
-			services.AddSingleton<IStatisticsService, StatisticsService>();
+			services.AddSingleton<IStatisticService, StatisticsService>();
 			services.AddSingleton<IUserService, UserService>();
 		}
 	}

@@ -2,11 +2,11 @@
 
 namespace BeeFarm.BLL.DTO
 {
-	public class StatisticsDTO
+	public class StatisticDTO
 	{
 		public int Id { get; set; }
 
-		public DateTime DataTime { get; set; }
+		public DateTime DateTime { get; set; }
 
 		public double Temperature { get; set; }
 
@@ -15,7 +15,5 @@ namespace BeeFarm.BLL.DTO
 		public double Weight { get; set; }
 
 		public string Location { get; set; }
-
-		public int? BeehiveId { get; set; }
 	}
 }

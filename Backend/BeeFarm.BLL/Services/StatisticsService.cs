@@ -3,11 +3,13 @@ using BeeFarm.BLL.DTO;
 using BeeFarm.BLL.Interfaces;
 using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BeeFarm.BLL.Services
 {
-	public class StatisticsService : IStatisticsService
+	public class StatisticsService : IStatisticService
 	{
 		private readonly IUnitOfWork _unitOfWork;
 		private readonly IMapper _mapper;
@@ -18,36 +20,62 @@ namespace BeeFarm.BLL.Services
 			_mapper = mapper;
 		}
 
-		public void Delete(int id)
+		public void Delete(int beehiveId)
 		{
-			_unitOfWork.Statistics.Delete(id);
+			_unitOfWork.Statistics.Delete(beehiveId);
 			_unitOfWork.Save();
 		}
 
-		public IEnumerable<StatisticsDTO> GetStatistics()
+		public IEnumerable<StatisticDTO> GetStatistics()
 		{
 			var statistics = _unitOfWork.Statistics.GetAll();
-			return _mapper.Map<IEnumerable<StatisticsDTO>>(statistics);
+			return _mapper.Map<IEnumerable<StatisticDTO>>(statistics);
 		}
 
-		public StatisticsDTO GetStatistics(int id)
+		public StatisticDTO GetStatistic(int statisticId)
 		{
-			var statistics = _unitOfWork.Statistics.Get(id);
-			return _mapper.Map<StatisticsDTO>(statistics);
+			var statistic = _unitOfWork.Statistics.Get(statisticId);
+			return _mapper.Map<StatisticDTO>(statistic);
 		}
 
-		public void Insert(StatisticsDTO statisticsDto)
+		public void Insert(StatisticDTO statisticDto)
 		{
-			var statistics = _mapper.Map<Statistics>(statisticsDto);
-			_unitOfWork.Statistics.Insert(statistics);
+			var statistic = _mapper.Map<Statistic>(statisticDto);
+			_unitOfWork.Statistics.Insert(statistic);
 			_unitOfWork.Save();
 		}
 
-		public void Update(StatisticsDTO statisticsDto)
+		public void Update(StatisticDTO statisticDto)
 		{
-			var statistics = _mapper.Map<Statistics>(statisticsDto);
-			_unitOfWork.Statistics.Update(statistics);
+			var statistic = _mapper.Map<Statistic>(statisticDto);
+			_unitOfWork.Statistics.Update(statistic);
 			_unitOfWork.Save();
+		}
+
+		public StatisticDTO GetStatistic(int statisticId, int beehiveId)
+		{
+			var statistic = GetStatisticsByBeehiveId(beehiveId)
+				.First(s => s.Id == statisticId);
+			return _mapper.Map<StatisticDTO>(statistic);
+		}
+
+		public IEnumerable<StatisticDTO> GetStatistics(int beehiveId)
+		{
+			var statistics = GetStatisticsByBeehiveId(beehiveId);
+			return _mapper.Map<IEnumerable<StatisticDTO>>(statistics);
+		}
+
+		public IEnumerable<StatisticDTO> GetStatistics(int beehiveId, DateTime start, DateTime end)
+		{
+			var statistics = GetStatisticsByBeehiveId(beehiveId)
+				.Where(s => s.DateTime >= start && s.DateTime <= end);
+			return _mapper.Map<IEnumerable<StatisticDTO>>(statistics);
+		}
+
+
+		private IEnumerable<Statistic> GetStatisticsByBeehiveId(int beehiveId)
+		{
+			return _unitOfWork.Statistics.Find(s => s.BeehiveId == beehiveId);
 		}
 	}
 }

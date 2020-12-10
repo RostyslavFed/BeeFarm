@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  authApi: 'http://localhost:50001/',
+  beeFarmApi: 'http://localhost:50000/',
+  allowedDomains: ['http://localhost:50000', 'http://localhost:50001']
 };
 
 /*

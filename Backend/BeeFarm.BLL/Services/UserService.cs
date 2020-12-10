@@ -5,6 +5,7 @@ using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using BeeFarm.BLL.Infrastructure;
 
 namespace BeeFarm.BLL.Services
@@ -40,6 +41,11 @@ namespace BeeFarm.BLL.Services
 
 		public void Insert(UserDTO userDto)
 		{
+			if (EmailTaken(userDto.Email))
+			{
+				throw new Exception("Email is already registered!");
+			}
+
 			var user = _mapper.Map<User>(userDto);
 			user.Password = HashAlgorithm.CreateMD5(userDto.Password);
 			_unitOfWork.Users.Insert(user);
@@ -48,9 +54,17 @@ namespace BeeFarm.BLL.Services
 
 		public void Update(UserDTO userDto)
 		{
-			var user = _mapper.Map<User>(userDto);
-			_unitOfWork.Users.Update(user);
-			_unitOfWork.Save();
+			var oldEmail = GetUser(userDto.Id).Email;
+			if (oldEmail == userDto.Email || !EmailTaken(userDto.Email))
+			{
+				var user = _mapper.Map<User>(userDto);
+				_unitOfWork.Users.Update(user);
+				_unitOfWork.Save();
+			}
+			else
+			{
+				throw new Exception("Email is already taken!");
+			}
 		}
 
 		public UserDTO GetUser(string email, string password)
@@ -60,6 +74,11 @@ namespace BeeFarm.BLL.Services
 				.Find(u => u.Email == email && u.Password == passwordHash)
 				.FirstOrDefault();
 			return _mapper.Map<UserDTO>(user);
+		}
+
+		private bool EmailTaken(string email)
+		{
+			return _unitOfWork.Users.Find(u => u.Email == email).Count() > 0;
 		}
 	}
 }

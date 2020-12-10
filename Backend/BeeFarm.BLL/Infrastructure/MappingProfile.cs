@@ -10,7 +10,7 @@ namespace BeeFarm.BLL.Infrastructure
 		{
 			CreateMap<BeeGarden, BeeGardenDTO>().ReverseMap();
 			CreateMap<Beehive, BeehiveDTO>().ReverseMap();
-			CreateMap<Statistics, StatisticsDTO>().ReverseMap();
+			CreateMap<Statistic, StatisticDTO>().ReverseMap();
 			CreateMap<User, UserDTO>().ReverseMap();
 		}
 	}

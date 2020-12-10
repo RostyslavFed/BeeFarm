@@ -6,7 +6,7 @@ namespace BeeFarm.DAL.Interfaces
     {
         IRepository<BeeGarden> BeeGardens { get; }
         IRepository<Beehive> Beehives { get; }
-        IRepository<Statistics> Statistics { get; }
+        IRepository<Statistic> Statistics { get; }
         IRepository<User> Users { get; }
         void Save();
     }

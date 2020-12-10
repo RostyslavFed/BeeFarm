@@ -37,7 +37,7 @@ namespace BeeFarm.DAL.Repositories
 			}
 		}
 
-		public IRepository<Statistics> Statistics
+		public IRepository<Statistic> Statistics
 		{
 			get
 			{

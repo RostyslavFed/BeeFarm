@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeeFarm.DAL.Entity
 {
-	public class Statistics
+	public class Statistic
 	{
 		[Key, Column(Order = 1)]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]

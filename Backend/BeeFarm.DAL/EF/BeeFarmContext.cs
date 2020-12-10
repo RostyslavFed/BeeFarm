@@ -9,7 +9,7 @@ namespace BeeFarm.DAL.EF
 		public DbSet<User> Users { get; set; }
 		public DbSet<BeeGarden> BeeGardens { get; set; }
 		public DbSet<Beehive> Beehives { get; set; }
-		public DbSet<Statistics> Statistics { get; set; }
+		public DbSet<Statistic> Statistics { get; set; }
 
 		public BeeFarmContext(DbContextOptions<BeeFarmContext> options)
 			: base(options)
@@ -77,7 +77,7 @@ namespace BeeFarm.DAL.EF
 			};
 			modelBuilder.Entity<Beehive>().HasData(beehive2);
 
-			var statistics = new Statistics
+			var statistics = new Statistic
 			{
 				Id = 1,
 				DateTime = DateTime.Now,
@@ -87,9 +87,9 @@ namespace BeeFarm.DAL.EF
 				Location = "49.82236707355737, 34.532303261131425",
 				BeehiveId = beehive.Id
 			};
-			modelBuilder.Entity<Statistics>().HasData(statistics);
+			modelBuilder.Entity<Statistic>().HasData(statistics);
 
-			var statistics2 = new Statistics
+			var statistics2 = new Statistic
 			{
 				Id = 2,
 				DateTime = DateTime.Now,
@@ -99,9 +99,9 @@ namespace BeeFarm.DAL.EF
 				Location = "48.82236707355737, 33.532303261131425",
 				BeehiveId = beehive.Id
 			};
-			modelBuilder.Entity<Statistics>().HasData(statistics2);
+			modelBuilder.Entity<Statistic>().HasData(statistics2);
 
-			var statistics3 = new Statistics
+			var statistics3 = new Statistic
 			{
 				Id = 3,
 				DateTime = DateTime.Now,
@@ -111,7 +111,7 @@ namespace BeeFarm.DAL.EF
 				Location = "45.82236707355737, 31.532303261131425",
 				BeehiveId = beehive.Id
 			};
-			modelBuilder.Entity<Statistics>().HasData(statistics3);
+			modelBuilder.Entity<Statistic>().HasData(statistics3);
 
 			base.OnModelCreating(modelBuilder);
 		}

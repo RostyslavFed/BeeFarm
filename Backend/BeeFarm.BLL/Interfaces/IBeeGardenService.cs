@@ -1,5 +1,4 @@
 ﻿using BeeFarm.BLL.DTO;
-using BeeFarm.DAL.Entity;
 using System.Collections.Generic;
 
 namespace BeeFarm.BLL.Interfaces
@@ -8,8 +7,10 @@ namespace BeeFarm.BLL.Interfaces
 	{
         void Insert(BeeGardenDTO beeGardenDto);
         void Update(BeeGardenDTO beeGardenDto);
-        void Delete(int id);
-        BeeGardenDTO GetBeeGarden(int id);
+        void Delete(int beeGardenId);
+        BeeGardenDTO GetBeeGarden(int beeGardenId);
+        BeeGardenDTO GetBeeGarden(int beeGardenId, int userId);
         IEnumerable<BeeGardenDTO> GetBeeGardens();
+        IEnumerable<BeeGardenDTO> GetBeeGardensByUserId(int userId);
     }
 }

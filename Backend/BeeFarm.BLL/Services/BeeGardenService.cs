@@ -4,6 +4,7 @@ using BeeFarm.BLL.Interfaces;
 using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BeeFarm.BLL.Services
 {
@@ -18,15 +19,15 @@ namespace BeeFarm.BLL.Services
 			_mapper = mapper;
 		}
 
-		public void Delete(int id)
+		public void Delete(int beeGardenId)
 		{
-			_unitOfWork.BeeGardens.Delete(id);
+			_unitOfWork.BeeGardens.Delete(beeGardenId);
 			_unitOfWork.Save();
 		}
 
-		public BeeGardenDTO GetBeeGarden(int id)
+		public BeeGardenDTO GetBeeGarden(int beeGardenId)
 		{
-			var beeGarden = _unitOfWork.BeeGardens.Get(id);
+			var beeGarden = _unitOfWork.BeeGardens.Get(beeGardenId);
 			return _mapper.Map<BeeGardenDTO>(beeGarden);
 		}
 
@@ -48,6 +49,20 @@ namespace BeeFarm.BLL.Services
 			var beeGarden = _mapper.Map<BeeGarden>(beeGardenDto);
 			_unitOfWork.BeeGardens.Update(beeGarden);
 			_unitOfWork.Save();
+		}
+
+		public IEnumerable<BeeGardenDTO> GetBeeGardensByUserId(int userId)
+		{
+			var beeGardens = _unitOfWork.BeeGardens.Find(b => b.UserId == userId);
+			return _mapper.Map<IEnumerable<BeeGardenDTO>>(beeGardens);
+		}
+
+		public BeeGardenDTO GetBeeGarden(int beeGardenId, int userId)
+		{
+			var beeGarden = _unitOfWork.BeeGardens
+				.Find(b => b.Id == beeGardenId && b.UserId == userId)
+				.FirstOrDefault();
+			return _mapper.Map<BeeGardenDTO>(beeGarden);
 		}
 	}
 }

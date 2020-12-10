@@ -27,7 +27,7 @@ namespace BeeFarm.DAL.Entity
 
 		public virtual BeeGarden BeeGarden { get; set; }
 
-		public virtual ICollection<Statistics> Statistics { get; set; }
+		public virtual ICollection<Statistic> Statistics { get; set; }
 
 	}
 }
