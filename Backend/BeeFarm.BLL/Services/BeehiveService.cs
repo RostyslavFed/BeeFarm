@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BeeFarm.BLL.DTO;
+using BeeFarm.BLL.BusinessModels;
 using BeeFarm.BLL.Interfaces;
 using BeeFarm.DAL.Entity;
 using BeeFarm.DAL.Interfaces;
@@ -12,11 +13,28 @@ namespace BeeFarm.BLL.Services
 	{
 		private readonly IUnitOfWork _unitOfWork;
 		private readonly IMapper _mapper;
+		private readonly IStatisticService _statisticService;
 
-		public BeehiveService(IUnitOfWork unitOfWork, IMapper mapper)
+		public BeehiveService(IUnitOfWork unitOfWork, IMapper mapper, IStatisticService statisticService)
 		{
 			_unitOfWork = unitOfWork;
 			_mapper = mapper;
+			_statisticService = statisticService;
+		}
+
+		public State GetBeehiveState(int beehiveId)
+		{
+			const int countOfValues = 5;
+			var averageStatistic = _statisticService.GetAverageStatistic(beehiveId, countOfValues);
+			var beehive = _unitOfWork.Beehives.Get(beehiveId);
+
+			if (beehive != null)
+			{
+				var stateCalculator = new StateCalculator();
+				return stateCalculator.GetState(averageStatistic, beehive);
+			}
+
+			return null;
 		}
 
 		public void Delete(int beehiveId)

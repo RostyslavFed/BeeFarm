@@ -1,13 +1,13 @@
 ﻿using BeeFarm.BLL.DTO;
 using BeeFarm.BLL.Interfaces;
-using BeeFarm.Resource.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BeeFarm.Resource.API.Controllers
 {
-	//[Authorize(Roles = "admin, user")]
+	[Authorize(Roles = "admin, user")]
 	[Route("api/statistics")]
 	[ApiController]
 	public class StatisticsController : ControllerBase

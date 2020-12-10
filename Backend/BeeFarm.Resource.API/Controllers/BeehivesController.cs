@@ -1,10 +1,12 @@
 ﻿using BeeFarm.BLL.DTO;
 using BeeFarm.BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace BeeFarm.Resource.API.Controllers
 {
+	[Authorize(Roles = "admin, user")]
 	[Route("api/beehives")]
 	[ApiController]
 	public class BeehivesController : ControllerBase
@@ -36,6 +38,17 @@ namespace BeeFarm.Resource.API.Controllers
 			if (beehive != null)
 			{
 				return Ok(beehive);
+			}
+			return NoContent();
+		}
+
+		[HttpGet("{beehiveId}/state")]
+		public IActionResult GetState(int beehiveId)
+		{
+			var state = _beehiveService.GetBeehiveState(beehiveId);
+			if (state != null)
+			{
+				return Ok(state);
 			}
 			return NoContent();
 		}

@@ -1,4 +1,5 @@
-﻿using BeeFarm.BLL.DTO;
+﻿using BeeFarm.BLL.BusinessModels;
+using BeeFarm.BLL.DTO;
 using System.Collections.Generic;
 
 namespace BeeFarm.BLL.Interfaces
@@ -12,5 +13,6 @@ namespace BeeFarm.BLL.Interfaces
 		BeehiveDTO GetBeehive(int beehiveId, int beeGardenId);
 		IEnumerable<BeehiveDTO> GetBeehives();
 		IEnumerable<BeehiveDTO> GetBeehives(int beeGardenId);
+		State GetBeehiveState(int beehiveId);
 	}
 }

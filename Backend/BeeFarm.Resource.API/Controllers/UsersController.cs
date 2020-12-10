@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace BeeFarm.Resource.API.Controllers
 {
-	//[Authorize(Roles = "admin")]
+	[Authorize(Roles = "admin, user")]
 	[Route("api/users")]
 	[ApiController]
 	public class UsersController : ControllerBase

@@ -15,7 +15,7 @@ namespace BeeFarm.DAL.Entity
 
 		public double Temperature { get; set; }
 
-		public int MoisturePercentage { get; set; }
+		public int Humidity { get; set; }
 
 		public double Weight { get; set; }
 

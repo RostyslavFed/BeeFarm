@@ -1,4 +1,5 @@
-﻿using BeeFarm.BLL.DTO;
+﻿using BeeFarm.BLL.BusinessModels;
+using BeeFarm.BLL.DTO;
 using System;
 using System.Collections.Generic;
 
@@ -14,5 +15,7 @@ namespace BeeFarm.BLL.Interfaces
 		IEnumerable<StatisticDTO> GetStatistics();
 		IEnumerable<StatisticDTO> GetStatistics(int beehiveId);
 		IEnumerable<StatisticDTO> GetStatistics(int beehiveId, DateTime start, DateTime end);
+		IEnumerable<StatisticDTO> GetLatestStatistics(int beehiveId, int count);
+		AverageStatistic GetAverageStatistic(int beehiveId, int count);
 	}
 }

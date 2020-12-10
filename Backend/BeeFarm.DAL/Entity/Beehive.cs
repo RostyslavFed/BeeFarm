@@ -22,6 +22,11 @@ namespace BeeFarm.DAL.Entity
 
 		public string Description { get; set; }
 
+		public double RecommendedTemperature { get; set; }
+
+		public int RecommendedHumidity { get; set; }
+
+		public string DeviceId { get; set; }
 
 		public int? BeeGardenId { get; set; }
 

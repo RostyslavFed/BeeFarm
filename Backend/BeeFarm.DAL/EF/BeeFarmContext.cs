@@ -60,6 +60,8 @@ namespace BeeFarm.DAL.EF
 				Description = "Description Beehives 1",
 				NumberOfTheFrames = 10,
 				Type = "Dadan",
+				RecommendedTemperature = 20,
+				RecommendedHumidity = 60,
 				YearOfTheQueenBee = 2020,
 				BeeGardenId = beeGarder.Id
 			};
@@ -72,6 +74,8 @@ namespace BeeFarm.DAL.EF
 				Description = "Description Beehives 2",
 				NumberOfTheFrames = 12,
 				Type = "Dadan",
+				RecommendedTemperature = 25,
+				RecommendedHumidity = 40,
 				YearOfTheQueenBee = 2019,
 				BeeGardenId = beeGarder.Id
 			};
@@ -82,7 +86,7 @@ namespace BeeFarm.DAL.EF
 				Id = 1,
 				DateTime = DateTime.Now,
 				Temperature = 21.3,
-				MoisturePercentage = 50,
+				Humidity = 50,
 				Weight = 85.7,
 				Location = "49.82236707355737, 34.532303261131425",
 				BeehiveId = beehive.Id
@@ -94,7 +98,7 @@ namespace BeeFarm.DAL.EF
 				Id = 2,
 				DateTime = DateTime.Now,
 				Temperature = 22.3,
-				MoisturePercentage = 55,
+				Humidity = 55,
 				Weight = 80.7,
 				Location = "48.82236707355737, 33.532303261131425",
 				BeehiveId = beehive.Id
@@ -106,7 +110,7 @@ namespace BeeFarm.DAL.EF
 				Id = 3,
 				DateTime = DateTime.Now,
 				Temperature = 30.3,
-				MoisturePercentage = 70,
+				Humidity = 70,
 				Weight = 70.7,
 				Location = "45.82236707355737, 31.532303261131425",
 				BeehiveId = beehive.Id

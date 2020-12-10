@@ -14,5 +14,11 @@ namespace BeeFarm.BLL.DTO
 		public int YearOfTheQueenBee { get; set; }
 
 		public string Description { get; set; }
+
+		public double RecommendedTemperature { get; set; }
+
+		public int RecommendedHumidity { get; set; }
+
+		public string DeviceId { get; set; }
 	}
 }

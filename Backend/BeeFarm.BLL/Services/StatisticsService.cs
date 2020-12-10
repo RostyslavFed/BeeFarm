@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BeeFarm.BLL.BusinessModels;
 using BeeFarm.BLL.DTO;
 using BeeFarm.BLL.Interfaces;
 using BeeFarm.DAL.Entity;
@@ -70,6 +71,21 @@ namespace BeeFarm.BLL.Services
 			var statistics = GetStatisticsByBeehiveId(beehiveId)
 				.Where(s => s.DateTime >= start && s.DateTime <= end);
 			return _mapper.Map<IEnumerable<StatisticDTO>>(statistics);
+		}
+
+		public IEnumerable<StatisticDTO> GetLatestStatistics(int beehiveId, int count)
+		{
+			var statistics = GetStatisticsByBeehiveId(beehiveId)
+				.OrderBy(s => s.DateTime)
+				.Take(count);
+			return _mapper.Map<IEnumerable<StatisticDTO>>(statistics);
+		}
+
+		public AverageStatistic GetAverageStatistic(int beehiveId, int count)
+		{
+			var statistics = GetLatestStatistics(beehiveId, count);
+			var statisticDTOs = _mapper.Map<IEnumerable<StatisticDTO>>(statistics);
+			return new AverageStatistic(statisticDTOs);
 		}
 
 
